@@ -1,15 +1,27 @@
 import SongDetails from "./SongDetails";
 
-const MusicList = ({songs}) => {
+const MusicList = ({songs, loaded}) => {
 
-    const songsList = songs.map ( song => {
+    const songsList = songs.map((song, index) => {
+
+        if(!loaded){
+            return <p>Geez this is slow, gimme a second....still loading</p>
+        }
+
         return (
-            <SongDetails song={song} />
+            <SongDetails 
+                song={song} 
+                chartPosition={index + 1}
+                key={index}
+            />
         )
     })
 
 return (
-    <ul>{songsList}</ul>
+    <>
+        <h2>iTunes Top 20 Songs in the UK:</h2>
+            <ul>{songsList}</ul>
+    </>
 )
 
 }

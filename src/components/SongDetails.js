@@ -1,7 +1,17 @@
-const SongDetails = () => {
+const SongDetails = ({song, chartPosition}) => {
 
     return (
-        <p>Song details go here!</p>
+        <>
+        <ul>    
+                Chart Pos: {chartPosition}
+            </ul>
+            <ul>
+                Artist: {song["im:artist"]["label"]}
+            </ul>
+            <ul>
+                Title: {song["im:name"]["label"]}
+        </ul>
+        </>
     )
 }
 
