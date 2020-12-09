@@ -2,11 +2,13 @@ import SongDetails from "./SongDetails";
 
 const MusicList = ({songs, loaded}) => {
 
+    if(!loaded){
+        return <p>Geez this is slow, gimme a second....still loading</p>
+    }
+
     const songsList = songs.map((song, index) => {
 
-        if(!loaded){
-            return <p>Geez this is slow, gimme a second....still loading</p>
-        }
+        
 
         return (
             <SongDetails 
@@ -23,6 +25,5 @@ return (
             <ul>{songsList}</ul>
     </>
 )
-
 }
 export default MusicList;
